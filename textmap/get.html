@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<title>The Public Fields.</title>
+	<link rel="shortcut icon" href="/media/ico/favicon.ico" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/media/css/bootstrap.css" rel="stylesheet">
+    <link href="/media/css/main.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-34054312-1']);
+        _gaq.push(['_setDomainName', 'publicfields.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+
+
+<div class="wrapper">
+<div class="container">
+
+
+<header class="hero-unit">
+    <h1>Textmap</h1>
+</header>
+
+<div class="row">
+<div class="span12">
+    <p>
+        Textmap is a worldmap drawn by country names in their own&nbsp;languages.
+    </p>
+</div>
+</div>
+
+<!-- This is hidden if the backend is online. -->
+<div id="eps-customizer-error">
+<div class="row">
+<div class="span12">
+    <p>
+        Loading data from the&nbsp;backend&#8230;
+    </p>
+    <p>
+        (If this message stays for too long, the backend is offline, or JavaScript is disabled.)
+    </P>
+</div>
+</div>
+</div>
+
+<!-- This stays hidden until colors dictionary is obtained from the backend,
+which means that the backend is online. -->
+<div id="eps-customizer-wrapper" style="type:hidden">
+
+<div class="row">
+<div class="span8">
+    <img id="map_thumbnail" width="100%" class="img-polaroid" />
+</div>
+<div class="span4">
+    <p>
+        Crude preview of the map. <span class="caps">RGB</span> colors are given for&nbsp;reference.
+    </p>
+    <p>
+        The preview is updated automatically as you change colors or the aspect&nbsp;ratio.
+    </p>
+</div>
+</div>
+
+<hr/>
+
+<div class="row">
+    <div class="span12">
+
+        <p id="test">Some&nbsp;text</p>
+        <form class="form-horizontal">
+        <fieldset>
+            <div class="control-group">
+            <label class="control-label">Aspect ratio</label>
+            <div class="controls">
+                <label class="radio">
+                <input type="radio" name="aspect_radios" id="aspect_robinson" checked>
+                Robinson projection (1.95/1)
+                </label>
+                <label class="radio">
+                <input type="radio" name="aspect_radios" id="aspect_golden">
+                Golden ratio (1.62/1)
+                </label>
+                <label class="radio">
+                <input type="radio" name="aspect_radios" id="aspect_A">
+                A series paper (1.41/1)
+                </label>
+            </div>
+            </div>
+
+            <div class="control-group">
+            <label class="control-label">Color scheme</label>
+            <div class="controls">
+                <label class="radio">
+                <input type="radio" name="color_radios" id="palette-dark" checked>
+                Dark background
+                </label>
+                <label class="radio">
+                <input type="radio" name="color_radios" id="palette-light">
+                Light background
+                </label>
+                <label class="radio">
+                <input type="radio" name="color_radios" id="palette-white">
+                White background
+                </label>
+            </div>
+            </div>
+
+            <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                    Show colors
+                    </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+
+                    <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                        <input type="checkbox" name="show_colors" id="show_colors">
+                        Set <span class="caps">CMYK</span> values manually
+                        </label>
+                    </div>
+                    </div>
+
+                    <div id="color-values">
+                                                            <div class="control-group success" id="color-group-main1">
+                    <label class="control-label" for="color-main1-c">Russia</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-main1-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main1-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main1-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main1-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-main2">
+                    <label class="control-label" for="color-main2-c">Canada</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-main2-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main2-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main2-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main2-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-main3">
+                    <label class="control-label" for="color-main3-c">Brasil</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-main3-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main3-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main3-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main3-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-main4">
+                    <label class="control-label" for="color-main4-c"><span class="caps">USA</span></label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-main4-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main4-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main4-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main4-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-main5">
+                    <label class="control-label" for="color-main5-c">Mexico</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-main5-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main5-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main5-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-main5-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-ice1">
+                    <label class="control-label" for="color-ice1-c">Argentine Antarctica</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-ice1-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice1-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice1-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice1-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-ice2">
+                    <label class="control-label" for="color-ice2-c">Ross Dependency</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-ice2-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice2-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice2-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice2-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-ice3">
+                    <label class="control-label" for="color-ice3-c">Australian Antarctic Territory</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-ice3-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice3-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice3-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice3-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-ice5">
+                    <label class="control-label" for="color-ice5-c">British Antarctic Territory</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-ice5-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice5-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice5-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ice5-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-iceneutral">
+                    <label class="control-label" for="color-iceneutral-c">Mary Byrd Land (neutral)</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-iceneutral-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-iceneutral-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-iceneutral-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-iceneutral-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                                            <div class="control-group success" id="color-group-ocean">
+                    <label class="control-label" for="color-ocean-c">Ocean</label>
+                    <div class="controls">
+                                          <input class="input-small disabled" id="color-ocean-c" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ocean-m" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ocean-y" type="number" value="0" disabled>
+                                          <input class="input-small disabled" id="color-ocean-k" type="number" value="0" disabled>
+                                        </div>
+                    </div>
+                                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <a href="javascript:void()" id="eps-link">Get the <span class="caps">EPS</span></a>
+        </fieldset>
+        </form>
+    </div>
+
+</div>
+
+<!-- end of #eps-customizer-wrapper -->
+</div>
+
+<script type="text/javascript" src="/media/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/media/js/bootstrap-transition.js"></script>
+<script type="text/javascript" src="/media/js/bootstrap-collapse.js"></script>
+
+<script type="text/javascript" src="/media/js/textmap.js"></script>
+
+<!-- JSONP request to get colors from the backend -->
+<script type="text/javascript" src="http://backend.publicfields.net/textmap/colors?callback=processColors"></script>
+
+
+</div>
+
+<div class="push"><!--//--></div>
+</div>
+
+<footer class="footer container">
+<p class="pull-right">
+    Last updated: 2012-10-14 00:56:31
+</p>
+<p>
+    &copy; Bogdan Opanchuk.
+    Powered by <a href="http://hyde.github.com" target="_blank">Hyde</a>.
+</p>
+</footer>
+
+
+</body>
+</html>
