@@ -105,7 +105,9 @@ function loadImages(colors) {
             });
         }).promise());
 
-        image.src = "http://publicfields.net/textmap/thumbnail800-" + aspect + ".png";
+        // FIXME: have to load them locally and not from the backend
+        // because of the paranoid browsers.
+        image.src = "/textmap/thumbnail800-" + aspect + ".png";
     }
 
     $.when.apply(this, image_load_callbacks).then(function () {
@@ -239,6 +241,7 @@ function processColors(colors) {
     });
 }
 
+$(function () {
 
 $(window).resize(function() {
     var width = $("#map_thumbnail").width();
@@ -328,3 +331,8 @@ $("#color-values").change(function () {
 });
 
 $('#collapseOne').collapse("hide");
+
+// Doing this instead of JSONP request.
+processColors({ "main1": [ 92, 219, 100 ], "main2": [ 207, 21, 101 ], "main3": [ 62, 148, 116 ], "main4": [ 221, 122, 112 ], "main5": [ 162, 195, 73 ], "ocean": [ 0, 0, 104 ], "ice3": [ 212, 240, 229 ], "ice2": [ 243, 208, 233 ], "ice1": [ 212, 242, 218 ], "ice5": [ 225, 234, 216 ], "iceneutral": [ 240, 240, 240 ] });
+
+});
