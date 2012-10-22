@@ -72,11 +72,10 @@ function createBackends() {
     for (var i in ASPECTS) {
         var aspect = ASPECTS[i];
         var backend_id = 'map_thumbnail_backend_' + aspect;
-        // $('#map_thumbnail_backend').remove();
         $('<canvas>').attr({
             type: 'hidden',
             id: backend_id,
-        }).appendTo('body');
+        }).prependTo('body');
         $("#" + backend_id).hide();
     }
 }
@@ -126,6 +125,10 @@ function setThumbnailBackend(aspect) {
     CURRENT_ASPECT = aspect;
     var backend = $("#map_thumbnail_backend_" + aspect);
     var canvas = backend.get(0);
+
+    var width = $("#map_thumbnail").attr('width');
+    $("#map_thumbnail").attr('height', canvas.height / canvas.width * width);
+
     $("#map_thumbnail").attr('src', canvas.toDataURL());
 }
 
@@ -195,7 +198,7 @@ function adjustThumbnailColors() {
     $("#eps-link").attr("href", link);
 
 
-    ctx.putImageData(imageData, 0, 0, width, height);
+    ctx.putImageData(imageData, 0, 0);
 
     setThumbnailBackend(aspect);
 }

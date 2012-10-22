@@ -1,5 +1,7 @@
-.footer{padding-top:28px;border-top:1px solid #999999;font-size:9px;}
-.footer p{margin-bottom:0;color:#555555;}
+#wrapper>.container{margin-bottom:28px;}
+#footer p{margin-bottom:0;color:#555555;}
+#footer .container{padding-top:28px;font-size:9px;border-top:1px solid #999999;}
+#footer{height:85px;}
 html,body{height:100%;}
-.wrapper{min-height:100%;height:auto !important;height:100%;margin:0 auto -56px;}
-.push{height:84px;}
+#wrapper{min-height:100%;height:auto !important;height:100%;margin:0 auto -85px;}
+#push{height:84px;}
